@@ -5,8 +5,8 @@ class Player:
         self.name = name
         self.current_room = current_room
 
-    def moving(self, direction_command, current_room):
-        attributes = f"{direction_command} + '_to'"
+    def moving(self, move, current_room):
+        attributes = f"{move} + '_to'"
         if getattr(self.current_room, attributes):
             self.current_room = getattr(self.current_room, attributes)
             print(self.current_room)

@@ -40,23 +40,57 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-newPlayer = Player("Player1", room["outside"])
 
 # Write a loop that:
 #
 # * Prints the current room name
-print(f"Current Room: {newPlayer.current_room}")
+
 # * Prints the current description (the textwrap module might be useful here).
-for str in textwrap.wrap(newPlayer.current_room.current_description):
-    print(str)
 
 # * Waits for user input and decides what to do.
-command = input("Enter your next command")
 
-direction_command = ("n", "s", "e", "w")
-
-#
 # If the user enters a cardinal direction, attempt to move to the room there.
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+newPlayer = input("Welcome! Enter Player name: ")
+player1 = Player(newPlayer, room['outside'])
+
+print(f"Current Room: {player1.current_room}")
+
+for str in textwrap.wrap(player1.current_room.current_description):
+    print(str)
+
+valid_commands = ("n", "s", "e", "w", "q")
+
+while True:
+    valid_commands = input("Enter your next command")
+    if valid_commands == 'q':
+        print("Thanks for playing, see you next time!")
+        exit(0)
+    elif valid_commands == "n":
+        try: 
+            player1.current_room = player1.current_room.n_to
+        except:
+            print("Try another direction")
+    elif valid_commands == "s":
+        try: 
+            player1.current_room = player1.current_room.s_to
+        except:
+            print("Try another direction")
+    elif valid_commands == "e":
+        try: 
+            player1.current_room = player1.current_room.e_to
+        except:
+            print("Try another direction")
+    elif valid_commands == "w":
+        try: 
+            player1.current_room = player1.current_room.w_to
+        except:
+            print("Try another direction")
+    elif valid_commands != ("n", "s", "e", "w"):
+        print("Please enter a direction to travel:'n', 's', 'e', 'w'")
+else:
+    print("Please try again with different command \n")
+
