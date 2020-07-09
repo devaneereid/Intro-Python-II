@@ -57,36 +57,40 @@ room['treasure'].s_to = room['narrow']
 newPlayer = input("Welcome! Enter Player name: ")
 player1 = Player(newPlayer, room['outside'])
 
-print(f"Current Room: {player1.current_room}")
+print(f"Let's play... {player1.current_room.current_description}")
 
-for str in textwrap.wrap(player1.current_room.current_description):
-    print(str)
+# for str in textwrap.wrap(player1.current_room.current_description):
+#     print(str)
 
 valid_commands = ("n", "s", "e", "w", "q")
 
 while True:
-    valid_commands = input("Enter your next command")
+    valid_commands = input("Enter which way you'd like to travel")
     if valid_commands == 'q':
         print("Thanks for playing, see you next time!")
-        exit(0)
+        exit()
     elif valid_commands == "n":
         try: 
             player1.current_room = player1.current_room.n_to
+            print("Current Room: ", player1.current_room)
         except:
             print("Try another direction")
     elif valid_commands == "s":
         try: 
             player1.current_room = player1.current_room.s_to
+            print("Current Room: ", player1.current_room)
         except:
             print("Try another direction")
     elif valid_commands == "e":
         try: 
             player1.current_room = player1.current_room.e_to
+            print("Current Room: ", player1.current_room)
         except:
             print("Try another direction")
     elif valid_commands == "w":
         try: 
             player1.current_room = player1.current_room.w_to
+            print("Current Room: ", player1.current_room)
         except:
             print("Try another direction")
     elif valid_commands != ("n", "s", "e", "w"):
