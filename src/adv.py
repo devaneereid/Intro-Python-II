@@ -105,7 +105,8 @@ while True:
     elif valid_commands != ("n", "s", "e", "w"):
         print("Please enter a direction to travel:'n', 's', 'e', 'w'")
 
-
+    # Code to pick up items in different rooms
+    # this code isn't the prettiest, I'll work on it more later
     item_commands = input("Enter 'get' or 'drop' for items: ")
     print(f"Player: {player1.name}, " "is in the " f"{player1.current_room.name}.")
     if item_commands == "get" and valid_commands == "n":
