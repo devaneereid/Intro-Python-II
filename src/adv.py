@@ -65,32 +65,32 @@ print(f"Let's play... {player1.current_room.current_description}")
 valid_commands = ("n", "s", "e", "w", "q")
 
 while True:
-    valid_commands = input("Enter which way you'd like to travel")
+    valid_commands = input("Enter which way you'd like to travel: ")
     if valid_commands == 'q':
         print("Thanks for playing, see you next time!")
         exit()
     elif valid_commands == "n":
         try: 
             player1.current_room = player1.current_room.n_to
-            print("Current Room: ", player1.current_room)
+            print("Current Room: ", player1.current_room, "- " + player1.current_room.current_description)
         except:
             print("Try another direction")
     elif valid_commands == "s":
         try: 
             player1.current_room = player1.current_room.s_to
-            print("Current Room: ", player1.current_room)
+            print("Current Room: ", player1.current_room, "- " + player1.current_room.current_description)
         except:
             print("Try another direction")
     elif valid_commands == "e":
         try: 
             player1.current_room = player1.current_room.e_to
-            print("Current Room: ", player1.current_room)
+            print("Current Room: ", player1.current_room, "- " + player1.current_room.current_description)
         except:
             print("Try another direction")
     elif valid_commands == "w":
         try: 
             player1.current_room = player1.current_room.w_to
-            print("Current Room: ", player1.current_room)
+            print("Current Room: ", player1.current_room, "- " + player1.current_room.current_description)
         except:
             print("Try another direction")
     elif valid_commands != ("n", "s", "e", "w"):

@@ -7,8 +7,7 @@ class Room:
         self.current_description = current_description
 
     def __str__(self):
-        # print(self.name)
-        return self.name
+        return self.name 
 
 
 
